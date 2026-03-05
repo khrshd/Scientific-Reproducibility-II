@@ -12,7 +12,7 @@ INPUT="data/counts.tsv"
 OUTPUT="results/summary.tsv"
 
 # ── PARAMETERS ── change these, then commit before re-running
-MIN_COUNT=10        # filter: remove genes with mean count below this
+MIN_COUNT=20        # filter: remove genes with mean count below this
 LOG_FILE="results/run.log"
 
 echo "[$(date --iso-8601=seconds)] Starting analysis" | tee "$LOG_FILE"
@@ -47,6 +47,7 @@ NR == 1 {
     printf "%s\t%.1f\t%.1f\t%.2f\t%s\n", $1, mean_ctrl, mean_treat, fc, status
 }
 ' "$INPUT" > "$OUTPUT"
+
 # ── Step 2: Report ──
 TOTAL=$(awk 'NR>1' "$INPUT" | wc -l)
 KEPT=$(awk 'NR>1' "$OUTPUT" | wc -l)
