@@ -1,0 +1,21 @@
+# ── Results and outputs ──
+results/
+
+# ── Raw data (large — store in institutional repository)
+data/*.fastq
+data/*.fastq.gz
+data/*.bam
+data/*.bai
+
+# ── Log files ──
+*.log
+slurm-*.out
+
+# ── Editor / OS noise ──
+.DS_Store
+*.swp
+*~
+
+# ── Allow small reference files through ──
+!results/summary.tsv     # the table itself is small enough to track
+!results/run.log         # the run log is the audit trail
