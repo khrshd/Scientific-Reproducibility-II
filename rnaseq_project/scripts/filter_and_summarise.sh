@@ -40,8 +40,8 @@ NR == 1 {
     fc = (mean_ctrl > 0) ? mean_treat / mean_ctrl : 0
 
     # Call direction
-    if      (fc >= 2.0) status = "UP"
-    else if (fc <= 0.5) status = "DOWN"
+    if      (fc >= 1.5) status = "UP"
+    else if (fc <= 0.67) status = "DOWN"
     else                status = "NS"
 
     printf "%s\t%.1f\t%.1f\t%.2f\t%s\n", $1, mean_ctrl, mean_treat, fc, status
